@@ -1,0 +1,1 @@
+<p>Advent of Svelte - Day 1</p>
