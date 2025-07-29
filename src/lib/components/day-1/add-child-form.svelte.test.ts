@@ -80,4 +80,20 @@ describe('Add Child Form Component', () => {
         expect(onAddChild).not.toHaveBeenCalled()
         expect(page.getByTestId('error-message')).toHaveTextContent('Name is required')
     })
+
+    it('should remove error message after success add child', async () => {
+        const nameInput = page.getByTestId('name-input')
+        const tallyInput = page.getByTestId('tally-input')
+        const addChildButton = page.getByTestId('add-child-button')
+
+        await tallyInput.fill('10')
+        await addChildButton.click()
+
+        expect(page.getByTestId('error-message')).toHaveTextContent('Name is required')
+
+        await nameInput.fill('John')
+        await addChildButton.click()
+
+		await expect.poll(() => page.getByTestId('error-message').query()).not.toBeInTheDocument()
+    })
 })

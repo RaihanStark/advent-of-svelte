@@ -14,6 +14,7 @@
     function resetForm() {
         forms.name = ''
         forms.tally = 0
+        error = ''
     }
 
     function handleAddChild() {
