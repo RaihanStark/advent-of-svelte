@@ -27,6 +27,7 @@
     }
 </script>
     
+<div class="flex flex-col gap-2 mb-5">
 {#if error}
 <div class="text-red-500" data-testid="error-message">
     Name is required
@@ -35,3 +36,4 @@
 <Input data-testid="name-input" placeholder="Name" bind:value={forms.name} required />
 <Input data-testid="tally-input" placeholder="Tally" type="number" bind:value={forms.tally} />
 <Button data-testid="add-child-button" onclick={handleAddChild}>Add Child</Button>
+</div>
