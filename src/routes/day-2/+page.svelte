@@ -4,25 +4,27 @@
     import SantaMood from "$lib/components/day-2/santa-mood.svelte";
 
     interface History {
+        id: number;
         action: 'increment' | 'decrement' | 'reset';
     }
 
     let history: History[] = $state([]);
     let cookiesCount = $state(0);
+    let nextId = $state(0);
 
     const handleIncrement = () => {
         cookiesCount++;
-        history.unshift({ action: 'increment' });
+        history.unshift({ id: nextId++, action: 'increment' });
     }
 
     const handleDecrement = () => {
         cookiesCount--;
-        history.unshift({ action: 'decrement' });
+        history.unshift({ id: nextId++, action: 'decrement' });
     }
 
     const handleReset = () => {
         cookiesCount = 0;
-        history.unshift({ action: 'reset' });
+        history.unshift({ id: nextId++, action: 'reset' });
     }
 </script>
 

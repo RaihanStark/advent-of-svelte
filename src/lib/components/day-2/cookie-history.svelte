@@ -1,4 +1,6 @@
 <script lang="ts">
+	import { fade } from "svelte/transition";
+
     let { history = [] } = $props();
 
     const getHistoryMessage = (action: string) => {
@@ -17,8 +19,8 @@
     {#if history.length === 0}
         <div class="text-center">No History</div>
     {:else}
-        {#each history as item}
-            <div class="flex justify-between border border-border rounded-md p-2">
+        {#each history as item (item.id)}
+            <div class="flex justify-between border border-border rounded-md p-2" in:fade>
                 <div>
                 {getHistoryMessage(item.action)}
                 </div>
