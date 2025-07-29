@@ -1,11 +1,11 @@
 <script lang="ts">
-	let { name = 'Unnamed Child', tally = 0 } = $props()
+	let { name = 'Unnamed Child', tally = 0, ...restProps } = $props()
 	
 	// Use default name if the provided name is empty or falsy
 	const displayName = name || 'Unnamed Child';
 </script>
 
-<div>
+<div {...restProps}>
 	<span data-testid="name">{displayName}</span>
 	<span data-testid="tally">{Math.round(tally)}</span>
 	{#if tally < 0}
