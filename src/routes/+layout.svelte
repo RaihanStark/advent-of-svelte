@@ -5,12 +5,15 @@
 	import AppTopbar from '$lib/components/app-topbar.svelte';
 
 	let { children } = $props();
+
+	let title = $state('')
+	let selected = $state('')
 </script>
 
 <Sidebar.Provider>
-	<AppSidebar />
+	<AppSidebar bind:title bind:selected />
 	<div class="flex flex-col w-full">
-		<AppTopbar title="Day 1: Naughty or Nice" />
+		<AppTopbar title={title} />
 		<main class="p-4">{@render children?.()}</main>
 	</div>
 </Sidebar.Provider>
