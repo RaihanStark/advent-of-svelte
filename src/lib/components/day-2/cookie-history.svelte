@@ -13,12 +13,12 @@
     }
 
 </script>
-<div data-testid="cookie-history" class="w-full mt-5">
+<div data-testid="cookie-history" class="w-full mt-5 gap-2 flex flex-col">
     {#if history.length === 0}
         <div class="text-center">No History</div>
     {:else}
         {#each history as item}
-            <div>
+            <div class="flex justify-between border border-border rounded-md p-2">
                 <div>
                 {getHistoryMessage(item.action)}
                 </div>
